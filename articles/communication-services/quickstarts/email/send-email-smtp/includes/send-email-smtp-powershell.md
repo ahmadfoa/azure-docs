@@ -29,6 +29,10 @@ The credentials can be verified using the Microsoft PowerShell utility Send-Mail
 
 To store the credentials in the required PSCredential format, use the following PowerShell commands:
 
+Fix formatting and clarify SMTP username usage in PowerShell as this causing confgusion for many customers. No mention about using the resource name and tenant ID
+'<SMTP Username>': The SMTP username should be in this format: <Azure Communication Services Resource name>.<Microsoft Entra Application ID>.<Microsoft Entra Tenant ID>
+$Password - Should be the value of the client secret.
+
 ```PowerShell
 $Password = ConvertTo-SecureString -AsPlainText -Force -String '<Entra Application Client Secret>'
 $Cred = New-Object -TypeName PSCredential -ArgumentList '<SMTP Username>', $Password
